@@ -1,0 +1,11 @@
+<details>
+
+<style media="screen">
+    summary {
+        display: list-item;
+    }
+</style>
+
+  <summary>{{ (.Get 0) | markdownify }}</summary>
+  {{ .Inner | markdownify }}
+</details>
