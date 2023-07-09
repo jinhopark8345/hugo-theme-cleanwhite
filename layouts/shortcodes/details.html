@@ -1,11 +1,25 @@
-<details>
+<!-- <details>
 
-<style media="screen">
-    summary {
-        display: list-item;
-    }
-</style>
+     <style media="screen">
+     summary {
+     display: list-item;
+     }
+     </style>
 
-  <summary>{{ (.Get 0) | markdownify }}</summary>
-  {{ .Inner | markdownify }}
+     <summary>{{ (.Get 0) | markdownify }}</summary>
+     {{ .Inner | markdownify }}
+     </details> -->
+
+{{ .Scratch.Set "lastp" (sub (.Params | len) 1) }}
+<details {{ if .Get 0 | eq "open"}} open {{ end }}>
+
+     <style media="screen">
+     summary {
+     display: list-item;
+     }
+     </style>
+    <summary>
+        {{ .Get (.Scratch.Get "lastp") }}
+    </summary>
+    {{ .Inner | markdownify }}
 </details>
